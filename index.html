@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Accueil - Andumnios Interactif</title><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://andumniosinteractif.com/"><link rel="alternate" type="application/atom+xml" href="https://andumniosinteractif.com/feed.xml" title="Andumnios Interactif - RSS"><link rel="alternate" type="application/json" href="https://andumniosinteractif.com/feed.json" title="Andumnios Interactif - JSON"><meta property="og:title" content="Accueil"><meta property="og:site_name" content="Andumnios Interactif"><meta property="og:description" content=""><meta property="og:url" content="https://andumniosinteractif.com/"><meta property="og:type" content="article"><link rel="stylesheet" href="https://andumniosinteractif.com/assets/css/style.css?v&#x3D;4386b620ee0a45cab8b764191433cbd6"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://andumniosinteractif.com/"},"headline":"Accueil","datePublished":"2026-08-07T11:20+02:00","dateModified":"2026-08-07T13:21+02:00","description":"","author":{"@type":"Person","name":"Andumnios Interactif","url":"https://andumniosinteractif.com/authors/andumnios-intercatif/"},"publisher":{"@type":"Organization","name":"Andumnios Interactif"}}</script><noscript><style>img[loading] {
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Accueil - Andumnios Interactif</title><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://andumniosinteractif.com/"><link rel="alternate" type="application/atom+xml" href="https://andumniosinteractif.com/feed.xml" title="Andumnios Interactif - RSS"><link rel="alternate" type="application/json" href="https://andumniosinteractif.com/feed.json" title="Andumnios Interactif - JSON"><meta property="og:title" content="Accueil"><meta property="og:site_name" content="Andumnios Interactif"><meta property="og:description" content=""><meta property="og:url" content="https://andumniosinteractif.com/"><meta property="og:type" content="article"><link rel="stylesheet" href="https://andumniosinteractif.com/assets/css/style.css?v&#x3D;46bff179a7e3ac2ef4336798401c3171"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://andumniosinteractif.com/"},"headline":"Accueil","datePublished":"2026-08-07T11:20+02:00","dateModified":"2026-08-07T13:21+02:00","description":"","author":{"@type":"Person","name":"Andumnios Interactif","url":"https://andumniosinteractif.com/authors/andumnios-intercatif/"},"publisher":{"@type":"Organization","name":"Andumnios Interactif"}}</script><noscript><style>img[loading] {
                     opacity: 1;
                 }</style></noscript><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Tangerine:wght@400;700&display=swap" rel="stylesheet"><div id="mon-image-de-fond"></div></head><body class="page-template"><header class="top js-header"><a class="logo" href="https://andumniosinteractif.com/">Andumnios Interactif</a></header><main class="page"><article class="content"><div class="hero hero--noimage"><header class="hero__content hero__content--centered"><div class="wrapper"><h1>Accueil</h1></div></header></div><div class="entry-wrapper content__entry"><div><div style="position: fixed;
   top: 0;
@@ -26,7 +26,7 @@
     if (el.innerHTML.includes('Andumnios Interactif')) {
       el.innerHTML = `
         <div class="footer-custom-layout">
-          <!-- TES LOGOS WEBP À GAUCHE -->
+          <!-- LOGOS À GAUCHE -->
           <div class="footer-socials">
             <a href="URL_PAGE_STEAM_ICI" target="_blank" rel="noopener" title="Steam">
               <img src="Logo_Steam.webp" alt="Steam" class="footer-img">
@@ -44,10 +44,20 @@
             © Andumnios Interactif — contact@andumniosinteractif.com | <a href="/mentions-legales.html">Mentions Légales</a>
           </div>
 
-          <!-- ESPACEUR À DROITE -->
-          <div class="footer-spacer"></div>
+          <!-- FLÈCHE RETOUR EN HAUT À DROITE -->
+          <div class="footer-back-to-top">
+            <a href="#" id="back-to-top-btn" title="Retour en haut">▲</a>
+          </div>
         </div>
       `;
+    }
+  });
+
+  // Action du clic pour remonter
+  document.addEventListener('click', function(e) {
+    if (e.target && e.target.id === 'back-to-top-btn') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   });
 });</script></body></html>
