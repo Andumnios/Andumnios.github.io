@@ -1,0 +1,13 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Andumnios Intercatif",
+    "description": "",
+    "home_page_url": "https://andumniosintercatif.com",
+    "feed_url": "https://andumniosintercatif.com/feed.json",
+    "user_comment": "",
+    "author": {
+        "name": "Andumnios Intercatif"
+    },
+    "items": [
+    ]
+}
