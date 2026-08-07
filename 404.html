@@ -10,45 +10,44 @@
                 }, false);
             }
         }</script><script>document.addEventListener("DOMContentLoaded", function() {
-  var footerElements = document.querySelectorAll('footer, .footer, #footer, .site-footer');
+  // Sélectionne le footer peu importe la page
+  var footerElement = document.querySelector('footer, .footer, #footer, .site-footer');
   
-  footerElements.forEach(function(el) {
-    if (el.innerHTML.includes('Andumnios Interactif')) {
-      el.innerHTML = `
-        <div class="footer-custom-layout">
-          <!-- LOGOS À GAUCHE -->
-          <div class="footer-socials">
-            <a href="URL_PAGE_STEAM_ICI" target="_blank" rel="noopener" title="Steam">
-              <img src="Logo_Steam.webp" alt="Steam" class="footer-img">
-            </a>
-            <a href="URL_PAGE_ITCH_ICI" target="_blank" rel="noopener" title="Itch.io">
-              <img src="Logo_Itch.webp" alt="Itch.io" class="footer-img">
-            </a>
-            <a href="URL_PAGE_GOG_ICI" target="_blank" rel="noopener" title="GOG">
-              <img src="Logo_GoG.webp" alt="GOG" class="footer-img">
-            </a>
-          </div>
+  if (footerElement) {
+    footerElement.innerHTML = `
+      <div class="footer-custom-layout">
+        <!-- LOGOS À GAUCHE -->
+        <div class="footer-socials">
+          <a href="URL_PAGE_STEAM_ICI" target="_blank" rel="noopener" title="Steam">
+            <img src="Logo_Steam.webp" alt="Steam" class="footer-img">
+          </a>
+          <a href="URL_PAGE_ITCH_ICI" target="_blank" rel="noopener" title="Itch.io">
+            <img src="Logo_Itch.webp" alt="Itch.io" class="footer-img">
+          </a>
+          <a href="URL_PAGE_GOG_ICI" target="_blank" rel="noopener" title="GOG">
+            <img src="Logo_GoG.webp" alt="GOG" class="footer-img">
+          </a>
+        </div>
 
-          <!-- TEXTE AU CENTRE -->
-          <div class="footer-text">
-            © Andumnios Interactif — contact@andumniosinteractif.com | <a href="/mentions-legales.html">Mentions Légales</a>
-          </div>
+        <!-- TEXTE AU CENTRE -->
+        <div class="footer-text">
+          © Andumnios Interactif — contact@andumniosinteractif.com | <a href="/mentions-legales.html">Mentions Légales</a>
+        </div>
 
-          <!-- KO-FI & FLÈCHE À DROITE -->
-          <div class="footer-right-group">
-            <a href="URL_PAGE_KOFI_ICI" target="_blank" rel="noopener" title="Ko-fi">
-              <img src="Logo_Kofi.webp" alt="Ko-fi" class="footer-img">
-            </a>
-            <div class="footer-back-to-top">
-              <a href="#" id="back-to-top-btn" title="Retour en haut">▲</a>
-            </div>
+        <!-- KO-FI & FLÈCHE À DROITE -->
+        <div class="footer-right-group">
+          <a href="URL_PAGE_KOFI_ICI" target="_blank" rel="noopener" title="Ko-fi">
+            <img src="Logo_Kofi.webp" alt="Ko-fi" class="footer-img">
+          </a>
+          <div class="footer-back-to-top">
+            <a href="#" id="back-to-top-btn" title="Retour en haut">▲</a>
           </div>
         </div>
-      `;
-    }
-  });
+      </div>
+    `;
+  }
 
-  // Action du clic pour remonter
+  // Action du clic pour remonter en haut de page
   document.addEventListener('click', function(e) {
     if (e.target && e.target.id === 'back-to-top-btn') {
       e.preventDefault();
