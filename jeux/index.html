@@ -60,15 +60,11 @@
   if (footerElement) {
     var isLocal = window.location.protocol === 'file:' || window.location.href.includes('preview');
     
-    // En local, on cible directement le fichier index.html via son chemin complet sur le disque ou via l'URL relative propre
-    // On peut aussi utiliser un chemin relatif intelligent ou laisser le script détecter la racine du preview
     var mentionsUrl;
     if (isLocal) {
-      // Trouve dynamiquement le chemin de base du preview dans l'URL actuelle
       var currentPath = window.location.pathname;
       var previewIndex = currentPath.indexOf('preview');
       if (previewIndex !== -1) {
-        // On reconstruit le chemin exact vers les mentions légales dans le preview local
         mentionsUrl = currentPath.substring(0, previewIndex + 7) + '/mentionslegales/index.html';
       } else {
         mentionsUrl = "../mentionslegales/index.html";
@@ -78,6 +74,53 @@
     }
     
     footerElement.innerHTML = `
+      <!-- Style CSS complet : Placement, espaces et zooms -->
+      <style>
+        /* --- 1. PLACEMENT GÉNÉRAL DU FOOTER --- */
+        .footer-custom-layout {
+          display: flex !important;
+          justify-content: space-between !important; /* Espace équitable entre gauche, centre et droite */
+          align-items: center !important;
+          flex-wrap: wrap !important;
+          gap: 20px !important; /* Espace global si l'écran est trop petit */
+        }
+
+        /* --- 2. ESPACES ENTRE LES LOGOS DE GAUCHE (Steam, Itch, Gog) --- */
+        .footer-socials {
+          display: flex !important;
+          align-items: center !important;
+        }
+        .footer-socials a:not(:last-child) {
+          margin-right: 25px !important; /* <-- Règle l'espace entre chaque logo de gauche */
+        }
+
+        /* --- 3. ESPACE ENTRE KO-FI ET LA FLÈCHE (Groupe de droite) --- */
+        .footer-right-group {
+          display: flex !important;
+          align-items: center !important;
+        }
+        .footer-right-group > *:not(:last-child) {
+          margin-right: 20px !important; /* <-- Règle l'espace entre Ko-fi et la flèche */
+        }
+
+        /* --- 4. ZOOMS PERSONNALISÉS (Scale) --- */
+        .footer img {
+          transition: transform 0.3s ease !important;
+        }
+        .footer a[title="Steam"] img:hover {
+          transform: scale(1.2) !important; 
+        }
+        .footer a[title="Itch.io"] img:hover {
+          transform: scale(1.2) !important; 
+        }
+        .footer a[title="GOG"] img:hover {
+          transform: scale(1.2) !important; 
+        }
+        .footer a[title="Ko-fi"] img:hover {
+          transform: scale(1.1) !important; 
+        }
+      </style>
+
       <div class="footer-custom-layout">
         <!-- LOGOS À GAUCHE -->
         <div class="footer-socials">
