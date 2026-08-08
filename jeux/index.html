@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
             <title>Jeux - Andumnios Interactif </title>
-        <meta name="description" content="À Propos d&#x27;Andumnios Interactif Plongez au cœur d&#x27;une aventure narrative et tactile au style visuel unique. Accompagnez Awen dans un univers enchanteur modélisé en 3D au rendu illustré. Examinez le décor, manipulez les objets du quotidien et laissez-vous porter par une histoire empreinte de douceur,&amp;hellip;">
+        <meta name="description" content="/* Gestion propre de l&#x27;affichage selon l&#x27;écran pour éviter les conflits */ @media (max-width: 768px) { .fond-pc { display: none !important; } .fond-mobile { display: block !important; } } @media (min-width: 769px) { .fond-pc { display: block !important; } .fond-mobile { display: none !important; }&amp;hellip;">
          
         <meta name="generator" content="Publii Open-Source CMS for Static Site">
 
@@ -13,10 +13,10 @@
         <link rel="alternate" type="application/atom+xml" href="https://andumniosinteractif.com/feed.xml" title="Andumnios Interactif - RSS">
 <link rel="alternate" type="application/json" href="https://andumniosinteractif.com/feed.json" title="Andumnios Interactif - JSON">
 
-        <meta property="og:title" content="Jeux"><meta property="og:image" content="https://andumniosinteractif.com/media/website/FaviconRondAndumniosInteractif.png"><meta property="og:image:width" content="566"><meta property="og:image:height" content="566"><meta property="og:site_name" content="Andumnios Interactif"><meta property="og:description" content="À Propos d&#x27;Andumnios Interactif Plongez au cœur d&#x27;une aventure narrative et tactile au style visuel unique. Accompagnez Awen dans un univers enchanteur modélisé en 3D au rendu illustré. Examinez le décor, manipulez les objets du quotidien et laissez-vous porter par une histoire empreinte de douceur,&amp;hellip;"><meta property="og:url" content="https://andumniosinteractif.com/jeux/index.html"><meta property="og:type" content="article">
+        <meta property="og:title" content="Jeux"><meta property="og:image" content="https://andumniosinteractif.com/media/website/FaviconRondAndumniosInteractif.png"><meta property="og:image:width" content="566"><meta property="og:image:height" content="566"><meta property="og:site_name" content="Andumnios Interactif"><meta property="og:description" content="/* Gestion propre de l&#x27;affichage selon l&#x27;écran pour éviter les conflits */ @media (max-width: 768px) { .fond-pc { display: none !important; } .fond-mobile { display: block !important; } } @media (min-width: 769px) { .fond-pc { display: block !important; } .fond-mobile { display: none !important; }&amp;hellip;"><meta property="og:url" content="https://andumniosinteractif.com/jeux/index.html"><meta property="og:type" content="article">
         
         <link rel="stylesheet" href="https://andumniosinteractif.com/assets/css/style.css?v&#x3D;852b0f7e1c6098a825b02ce973157186">
-        <script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://andumniosinteractif.com/jeux/index.html"},"headline":"Jeux","datePublished":"2026-08-08T06:11+02:00","dateModified":"2026-08-08T15:09+02:00","image":{"@type":"ImageObject","url":"https://andumniosinteractif.com/media/website/FaviconRondAndumniosInteractif.png","height":566,"width":566},"description":"À Propos d'Andumnios Interactif Plongez au cœur d'une aventure narrative et tactile au style visuel unique. Accompagnez Awen dans un univers enchanteur modélisé en 3D au rendu illustré. Examinez le décor, manipulez les objets du quotidien et laissez-vous porter par une histoire empreinte de douceur,&hellip;","author":{"@type":"Person","name":"Andumnios Interactif","url":"https://andumniosinteractif.com/authors/andumnios-intercatif/"},"publisher":{"@type":"Organization","name":"Andumnios Interactif","logo":{"@type":"ImageObject","url":"https://andumniosinteractif.com/media/website/FaviconRondAndumniosInteractif.png","height":566,"width":566}}}</script>
+        <script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://andumniosinteractif.com/jeux/index.html"},"headline":"Jeux","datePublished":"2026-08-08T06:11+02:00","dateModified":"2026-08-08T15:27+02:00","image":{"@type":"ImageObject","url":"https://andumniosinteractif.com/media/website/FaviconRondAndumniosInteractif.png","height":566,"width":566},"description":"/* Gestion propre de l'affichage selon l'écran pour éviter les conflits */ @media (max-width: 768px) { .fond-pc { display: none !important; } .fond-mobile { display: block !important; } } @media (min-width: 769px) { .fond-pc { display: block !important; } .fond-mobile { display: none !important; }&hellip;","author":{"@type":"Person","name":"Andumnios Interactif","url":"https://andumniosinteractif.com/authors/andumnios-intercatif/"},"publisher":{"@type":"Organization","name":"Andumnios Interactif","logo":{"@type":"ImageObject","url":"https://andumniosinteractif.com/media/website/FaviconRondAndumniosInteractif.png","height":566,"width":566}}}</script>
         <noscript>
             <style>
                 img[loading] {
@@ -95,37 +95,38 @@
          </div>
 
          <div class="entry-wrapper content__entry">           
-            <div><!-- Version visible uniquement sur PC -->
-<div class="fond-pc" style="
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: auto;
-  z-index: -9999;
-  pointer-events: none;">
+            <div><!-- Version visible uniquement sur PC (masquée en CSS natif pour les petits écrans < 768px) -->
+<div class="fond-pc" style="position: absolute; top: 0; left: 0; width: 100vw; height: auto; z-index: -9999; pointer-events: none;">
   <img loading="lazy" id="parchemin-pc" style="width: 100%; height: auto; display: block;" alt="Parchemin PC"
 </div>
 
-<!-- Version mobile centrée, étroite et sans rouleaux -->
-<div class="fond-mobile" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -9999; pointer-events: none; overflow: hidden;">
-  <img loading="lazy" id="parchemin-mobile" style="width: 130%; height: 130%; object-fit: cover; position: absolute; top: -15%; left: 50%; transform: translateX(-50%); display: block;" alt="Parchemin Mobile">
+<!-- Version mobile/tablette (affichée en CSS natif pour les écrans < 768px) -->
+<div class="fond-mobile" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -9999; pointer-events: none; overflow: hidden;">
+  <img loading="lazy" id="parchemin-mobile" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Parchemin Mobile">
 </div>
 
+<style>
+  /* Gestion propre de l'affichage selon l'écran pour éviter les conflits */
+  @media (max-width: 768px) {
+    .fond-pc { display: none !important; }
+    .fond-mobile { display: block !important; }
+  }
+  @media (min-width: 769px) {
+    .fond-pc { display: block !important; }
+    .fond-mobile { display: none !important; }
+  }
+</style>
+
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  var imgPc = document.getElementById('parchemin-pc');
-  var imgMobile = document.getElementById('parchemin-mobile');
-  
-  var imageUrl = "https://andumniosinteractif.com/media/files/FondParchemin.webp";
-  
-  if (imgPc) {
-    imgPc.src = imageUrl;
-  }
-  if (imgMobile) {
-    imgMobile.src = imageUrl;
-  }
-});
+  document.addEventListener("DOMContentLoaded", function() {
+    var imageUrl = "https://andumniosinteractif.com/media/files/FondParchemin.webp";
+    
+    var imgPc = document.getElementById('parchemin-pc');
+    var imgMobile = document.getElementById('parchemin-mobile');
+    
+    if (imgPc) { imgPc.src = imageUrl; }
+    if (imgMobile) { imgMobile.src = imageUrl; }
+  });
 </script></div>
 <div><h1 style="margin-top: -200px !important; text-align: center !important;">À Propos d'Andumnios Interactif</h1></div>
 <div><h2 style="margin-top: 200px !important; margin-bottom: 20px !important;"></h2></div>
