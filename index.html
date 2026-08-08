@@ -44,17 +44,20 @@
   if (footerElement) {
     var isLocal = window.location.protocol === 'file:' || window.location.href.includes('preview');
     
-    var mentionsUrl;
+    var mentionsUrl, homeUrl;
     if (isLocal) {
       var currentPath = window.location.pathname;
       var previewIndex = currentPath.indexOf('preview');
       if (previewIndex !== -1) {
         mentionsUrl = currentPath.substring(0, previewIndex + 7) + '/mentionslegales/index.html';
+        homeUrl = currentPath.substring(0, previewIndex + 7) + '/index.html';
       } else {
         mentionsUrl = "../mentionslegales/index.html";
+        homeUrl = "../index.html";
       }
     } else {
       mentionsUrl = "https://andumniosinteractif.com/mentionslegales";
+      homeUrl = "https://andumniosinteractif.com/";
     }
     
     footerElement.innerHTML = `
@@ -63,28 +66,50 @@
         /* --- 1. PLACEMENT GÉNÉRAL DU FOOTER --- */
         .footer-custom-layout {
           display: flex !important;
-          justify-content: space-between !important; /* Espace équitable entre gauche, centre et droite */
+          justify-content: space-between !important;
           align-items: center !important;
           flex-wrap: wrap !important;
-          gap: 20px !important; /* Espace global si l'écran est trop petit */
+          gap: 20px !important;
         }
 
-        /* --- 2. ESPACES ENTRE LES LOGOS DE GAUCHE (Steam, Itch, Gog) --- */
+        /* --- 2. ESPACES ENTRE LES LOGOS DE GAUCHE --- */
         .footer-socials {
           display: flex !important;
           align-items: center !important;
+          margin-left: 20px !important; /* <-- Modifie cette valeur pour décaler plus ou moins vers la droite */
         }
         .footer-socials a:not(:last-child) {
-          margin-right: 25px !important; /* <-- Règle l'espace entre chaque logo de gauche */
+          margin-right: 25px !important;
         }
 
-        /* --- 3. ESPACE ENTRE KO-FI ET LA FLÈCHE (Groupe de droite) --- */
+        /* --- 3. ESPACE ENTRE KO-FI, ACCUEIL ET LA FLÈCHE --- */
         .footer-right-group {
           display: flex !important;
           align-items: center !important;
+          margin-right: 15px !important; /* <-- Décale le bloc de droite vers la gauche */
         }
         .footer-right-group > *:not(:last-child) {
-          margin-right: 20px !important; /* <-- Règle l'espace entre Ko-fi et la flèche */
+          margin-right: 20px !important;
+        }
+
+        /* Style visuel unifié pour les icônes de navigation rapide (Accueil & Retour haut) */
+        .footer-nav-icon {
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          text-decoration: none !important;
+          font-size: 1.4rem !important;
+          line-height: 1 !important;
+          transition: transform 0.3s ease !important;
+          color: inherit !important;
+        }
+        .footer-nav-icon svg {
+          width: 36px !important; /* Taille augmentée */
+          height: 36px !important; /* Taille augmentée */
+          fill: currentColor !important;
+        }
+        .footer-nav-icon:hover {
+          transform: scale(1.3) !important; /* Effet scale accentué au survol */
         }
 
         /* --- 4. ZOOMS PERSONNALISÉS (Scale) --- */
@@ -119,18 +144,23 @@
           </a>
         </div>
 
-        <!-- TEXTE AU CENTRE : Lien dynamique -->
+        <!-- TEXTE AU CENTRE -->
         <div class="footer-text">
           © Andumnios Interactif — contact@andumniosinteractif.com | <a href="${mentionsUrl}">Mentions Légales</a>
         </div>
 
-        <!-- KO-FI & FLÈCHE À DROITE -->
+        <!-- KO-FI, ACCUEIL & FLÈCHE À DROITE -->
         <div class="footer-right-group">
           <a href="https://ko-fi.com/" target="_blank" rel="noopener" title="Ko-fi">
             <img src="https://andumniosinteractif.com/media/files/Logo_Kofi.webp" alt="Ko-fi" class="footer-img">
           </a>
+          <div class="footer-home-link">
+            <a href="${homeUrl}" class="footer-nav-icon" title="Retour à l'accueil">
+              <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            </a>
+          </div>
           <div class="footer-back-to-top">
-            <a href="#" id="back-to-top-btn" title="Retour en haut">▲</a>
+            <a href="#" id="back-to-top-btn" class="footer-nav-icon" title="Retour en haut">▲</a>
           </div>
         </div>
       </div>
@@ -139,7 +169,7 @@
 
   // Action du clic pour remonter en haut de page
   document.addEventListener('click', function(e) {
-    if (e.target && e.target.id === 'back-to-top-btn') {
+    if (e.target && (e.target.id === 'back-to-top-btn' || e.target.closest('#back-to-top-btn'))) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
