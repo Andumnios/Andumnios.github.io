@@ -10,14 +10,6 @@
                 }, false);
             }
         }</script><script>document.addEventListener("DOMContentLoaded", function() {
-  // Détection automatique de la racine du site
-  var rootPrefix = "";
-  var mainStylesheet = document.querySelector('link[rel="stylesheet"]');
-  if (mainStylesheet && mainStylesheet.getAttribute('href').indexOf('../') === 0) {
-    rootPrefix = "../";
-  }
-
-  // Sélectionne le footer peu importe la page
   var footerElement = document.querySelector('footer, .footer, #footer, .site-footer');
   
   if (footerElement) {
@@ -26,25 +18,25 @@
         <!-- LOGOS À GAUCHE -->
         <div class="footer-socials">
           <a href="URL_PAGE_STEAM_ICI" target="_blank" rel="noopener" title="Steam">
-            <img src="${rootPrefix}Logo_Steam.webp" alt="Steam" class="footer-img">
+            <img src="https://andumniosinteractif.com/media/files/Logo_Steam.webp" alt="Steam" class="footer-img">
           </a>
           <a href="URL_PAGE_ITCH_ICI" target="_blank" rel="noopener" title="Itch.io">
-            <img src="${rootPrefix}Logo_Itch.webp" alt="Itch.io" class="footer-img">
+            <img src="https://andumniosinteractif.com/media/files/Logo_Itch.webp" alt="Itch.io" class="footer-img">
           </a>
           <a href="URL_PAGE_GOG_ICI" target="_blank" rel="noopener" title="GOG">
-            <img src="${rootPrefix}Logo_GoG.webp" alt="GOG" class="footer-img">
+            <img src="https://andumniosinteractif.com/media/files/Logo_GoG.webp" alt="GOG" class="footer-img">
           </a>
         </div>
 
-        <!-- TEXTE AU CENTRE : Ajout de index.html pour forcer l'ouverture du fichier -->
+        <!-- TEXTE AU CENTRE : Chemin relatif pour les mentions légales en local -->
         <div class="footer-text">
-          © Andumnios Interactif — contact@andumniosinteractif.com | <a href="${rootPrefix}mentionslegales/index.html">Mentions Légales</a>
+          © Andumnios Interactif — contact@andumniosinteractif.com | <a href="../preview/mentionslegales/index.html">Mentions Légales</a>
         </div>
 
         <!-- KO-FI & FLÈCHE À DROITE -->
         <div class="footer-right-group">
           <a href="URL_PAGE_KOFI_ICI" target="_blank" rel="noopener" title="Ko-fi">
-            <img src="${rootPrefix}Logo_Kofi.webp" alt="Ko-fi" class="footer-img">
+            <img src="https://andumniosinteractif.com/media/files/Logo_Kofi.webp" alt="Ko-fi" class="footer-img">
           </a>
           <div class="footer-back-to-top">
             <a href="#" id="back-to-top-btn" title="Retour en haut">▲</a>
