@@ -74,11 +74,6 @@
           box-sizing: border-box !important;
         }
 
-        /* Sécurité pour éviter que le contenu ne passe sous le footer fixe */
-        body {
-          padding-bottom: 75px !important;
-        }
-
         /* --- 1. PLACEMENT GÉNÉRAL DU FOOTER --- */
         .footer-custom-layout {
           display: flex !important;
@@ -181,6 +176,24 @@
         </div>
       </div>
     `;
+
+    // --- CRÉATION D'UN ESPACEUR PHYSIQUE EN FIN DE PAGE ---
+    setTimeout(function() {
+      var footerHeight = footerElement.offsetHeight;
+      
+      // On regarde si l'espaceur existe déjà, sinon on le crée
+      var spacer = document.getElementById('dynamic-footer-spacer');
+      if (!spacer) {
+        spacer = document.createElement('div');
+        spacer.id = 'dynamic-footer-spacer';
+        document.body.appendChild(spacer);
+      }
+      
+      // On lui donne exactement la hauteur du footer + une marge de sécurité confortable (ex: +30px)
+      spacer.style.height = (footerHeight + 30) + "px";
+      spacer.style.width = "100%";
+      spacer.style.pointerEvents = "none";
+    }, 100);
   }
 
   // Action du clic pour remonter en haut de page
