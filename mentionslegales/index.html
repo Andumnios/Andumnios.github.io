@@ -113,8 +113,45 @@
         .footer-nav-icon { display: inline-flex !important; align-items: center !important; justify-content: center !important; text-decoration: none !important; font-size: 1.4rem !important; line-height: 1 !important; transition: transform 0.3s ease !important; color: inherit !important; }
         .footer-nav-icon svg { width: 36px !important; height: 36px !important; fill: currentColor !important; }
         .footer-nav-icon:hover { transform: scale(1.3) !important; }
-        footer a, .footer a, #footer a, .site-footer a { color: #fff2cc !important; text-decoration: none; font-family: 'Comic Neue', cursive, sans-serif !important; }
-        footer a:hover, .footer a:hover, #footer a:hover, .site-footer a:hover { text-decoration: underline; }
+        
+        /* Style général des liens texte */
+        footer a, .footer a, #footer a, .site-footer a { 
+          color: #fff2cc !important; 
+          text-decoration: none; 
+          font-family: 'Comic Neue', cursive, sans-serif !important; 
+        }
+        footer a:hover, .footer a:hover, #footer a:hover, .site-footer a:hover { 
+          text-decoration: underline; 
+        }
+
+        /* --- 1. ZOOM INDÉPENDANT POUR LE MAIL --- */
+        a.footer-link-email {
+          display: inline-block !important;
+          transition: transform 0.3s ease !important;
+        }
+        a.footer-link-email:hover {
+          transform: scale(1.05) !important;
+        }
+
+        /* --- 2. ZOOM INDÉPENDANT POUR MENTIONS LÉGALES --- */
+        a.footer-link-mentions {
+          display: inline-block !important;
+          transition: transform 0.3s ease !important;
+        }
+        a.footer-link-mentions:hover {
+          transform: scale(1.08) !important;
+        }
+
+        /* --- 3. DÉCALAGE DU LOGO ACCUEIL UNIQUEMENT SUR PC (écrans > 768px) --- */
+        @media (min-width: 769px) {
+          .footer-home-link {
+            position: relative !important;
+            /* Modifie le premier chiffre pour X (positif = droite, négatif = gauche) 
+               et le deuxième chiffre pour Y (positif = bas, négatif = haut) */
+            transform: translate(0px, 4px) !important; 
+          }
+        }
+
         .footer img { transition: transform 0.3s ease !important; }
         .footer a[title="Steam"] img:hover, .footer a[title="Itch.io"] img:hover, .footer a[title="GOG"] img:hover { transform: scale(1.2) !important; }
         .footer a[title="Ko-fi"] img:hover { transform: scale(1.1) !important; }
@@ -126,7 +163,7 @@
           <a href="https://andumniosinteractif.com/comingsoon/" target="_blank" rel="noopener" title="GOG"><img src="https://andumniosinteractif.com/media/files/Logo_GoG.webp" alt="GOG" class="footer-img"></a>
         </div>
         <div class="footer-text">
-          © Andumnios Interactif | <span id="footer-email-protect">...</span> | <a href="${mentionsUrl}">Mentions Légales</a>
+          © Andumnios Interactif | <span id="footer-email-protect">...</span> | <a href="${mentionsUrl}" class="footer-link-mentions">Mentions Légales</a>
         </div>
         <div class="footer-right-group">
           <a href="https://andumniosinteractif.com/comingsoon/" target="_blank" rel="noopener" title="Ko-fi"><img src="https://andumniosinteractif.com/media/files/Logo_Kofi.webp" alt="Ko-fi" class="footer-img"></a>
@@ -136,12 +173,12 @@
       </div>
     `;
 
-    // Injection et décodage de l'e-mail
+    // Injection et décodage de l'e-mail avec attribution de la classe CSS
     var emailEncoded = "Y29udGFjdEBhbmR1bW5pb3NpbnRlcmFjdGlmLmNvbQ==";
     var emailDecoded = atob(emailEncoded);
     var emailSpan = document.getElementById('footer-email-protect');
     if (emailSpan) {
-        emailSpan.innerHTML = '<a href="mailto:' + emailDecoded + '" style="color: #fff2cc; text-decoration: underline;">' + emailDecoded + '</a>';
+        emailSpan.innerHTML = '<a href="mailto:' + emailDecoded + '" class="footer-link-email" style="color: #fff2cc; text-decoration: underline;">' + emailDecoded + '</a>';
     }
 
     setTimeout(function() {
