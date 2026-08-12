@@ -56,6 +56,17 @@
           color: #fff2cc !important;
         }
 
+        /* --- RÉGLAGE DE LA POSITION ET DU RESPONSIVE DE L'IMAGE MAIL --- */
+        .email-icon {
+          vertical-align: middle !important;
+          height: 1.1em !important;
+          display: inline-block !important;
+          /* Modifie ces valeurs pour ajuster la position sur PC :
+             - translateY : négatif pour monter, positif pour descendre
+             - translateX : négatif pour aller à gauche, positif pour aller à droite */
+          transform: translateY(-4px) translateX(0px) !important;
+        }
+
         /* --- 1. PLACEMENT GÉNÉRAL DU FOOTER --- */
         .footer-custom-layout {
           display: flex !important;
@@ -131,6 +142,15 @@
         .footer a[title="Ko-fi"] img:hover {
           transform: scale(1.1) !important; 
         }
+
+        /* --- 5. ADAPTATION RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+          .email-icon {
+            height: 0.8em !important; /* Taille de l'image sur mobile */
+            /* Ajoute la ligne ci-dessous pour bouger l'image sur mobile uniquement : */
+            transform: translateY(-2px) translateX(0px) !important;
+          }
+        }
       </style>
 
       <div class="footer-custom-layout">
@@ -147,9 +167,9 @@
           </a>
         </div>
 
-        <!-- TEXTE AU CENTRE (AVEC IMAGE E-MAIL PROTÉGÉE) -->
+        <!-- TEXTE AU CENTRE (AVEC IMAGE E-MAIL PROTÉGÉE ET CLASSE RESPONSIVE) -->
         <div class="footer-text">
-          © Andumnios Interactif — <img src="https://andumniosinteractif.com/media/files/image_email.png" alt="contact at andumniosinteractif point com" style="vertical-align: middle; height: 1.1em; display: inline-block;"> | <a href="${mentionsUrl}">Mentions Légales</a>
+          © Andumnios Interactif — <img src="https://andumniosinteractif.com/media/files/Mail.webp" alt="contact" class="email-icon"> | <a href="${mentionsUrl}">Mentions Légales</a>
         </div>
 
         <!-- KO-FI, ACCUEIL & FLÈCHE À DROITE -->
