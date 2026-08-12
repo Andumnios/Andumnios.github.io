@@ -120,9 +120,12 @@ footer,
     }
     
     footerElement.innerHTML = `
-      <!-- Style CSS complet : Placement fixe, espaces et zooms -->
+      <!-- Style CSS complet : Placement fixe, espaces, zooms, police et couleur -->
       <style>
-        /* --- 0. FIXATION DU FOOTER EN BAS DE L'ÉCRAN --- */
+        /* Import direct de la police pour forcer son chargement dans le footer */
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+
+        /* --- 0. FIXATION DU FOOTER, POLICE ET COULEUR --- */
         footer, .footer, #footer, .site-footer {
           position: fixed !important;
           bottom: 0 !important;
@@ -131,6 +134,14 @@ footer,
           z-index: 99999 !important;
           margin: 0 !important;
           box-sizing: border-box !important;
+          font-family: 'Comic Neue', cursive, sans-serif !important;
+          color: #fff2cc !important;
+        }
+
+        /* Application de la police sur les textes du footer sans casser le flex */
+        .footer-text, .footer-text *, .footer-nav-icon, #back-to-top-btn {
+          font-family: 'Comic Neue', cursive, sans-serif !important;
+          color: #fff2cc !important;
         }
 
         /* --- 1. PLACEMENT GÉNÉRAL DU FOOTER --- */
@@ -182,6 +193,16 @@ footer,
           transform: scale(1.3) !important;
         }
 
+        /* Forcer la couleur des liens du footer en #fff2cc */
+        footer a, .footer a, #footer a, .site-footer a {
+          color: #fff2cc !important;
+          text-decoration: none;
+          font-family: 'Comic Neue', cursive, sans-serif !important;
+        }
+        footer a:hover, .footer a:hover, #footer a:hover, .site-footer a:hover {
+          text-decoration: underline;
+        }
+
         /* --- 4. ZOOMS PERSONNALISÉS (Scale) --- */
         .footer img {
           transition: transform 0.3s ease !important;
@@ -214,9 +235,9 @@ footer,
           </a>
         </div>
 
-        <!-- TEXTE AU CENTRE -->
+        <!-- TEXTE AU CENTRE (AVEC IMAGE E-MAIL PROTÉGÉE) -->
         <div class="footer-text">
-          © Andumnios Interactif — contact@andumniosinteractif.com | <a href="${mentionsUrl}">Mentions Légales</a>
+          © Andumnios Interactif — <img src="https://andumniosinteractif.com/media/files/image_email.png" alt="contact at andumniosinteractif point com" style="vertical-align: middle; height: 1.1em; display: inline-block;"> | <a href="${mentionsUrl}">Mentions Légales</a>
         </div>
 
         <!-- KO-FI, ACCUEIL & FLÈCHE À DROITE -->
@@ -240,7 +261,6 @@ footer,
     setTimeout(function() {
       var footerHeight = footerElement.offsetHeight;
       
-      // On regarde si l'espaceur existe déjà, sinon on le crée
       var spacer = document.getElementById('dynamic-footer-spacer');
       if (!spacer) {
         spacer = document.createElement('div');
@@ -248,14 +268,12 @@ footer,
         document.body.appendChild(spacer);
       }
       
-      // On lui donne exactement la hauteur du footer + une marge de sécurité confortable (ex: +30px)
       spacer.style.height = (footerHeight + 30) + "px";
       spacer.style.width = "100%";
       spacer.style.pointerEvents = "none";
     }, 100);
   }
 
-  // Action du clic pour remonter en haut de page
   document.addEventListener('click', function(e) {
     if (e.target && (e.target.id === 'back-to-top-btn' || e.target.closest('#back-to-top-btn'))) {
       e.preventDefault();
