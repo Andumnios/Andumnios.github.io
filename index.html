@@ -85,6 +85,27 @@
           text-decoration: underline; 
         }
 
+        /* --- RÉGLAGE DE LA TAILLE ET DE LA POSITION DU BOUTON ITCH --- */
+        .footer-itch-btn {
+          display: inline-block !important;
+          /* Modifie le 1er chiffre (X) pour bouger à gauche/droite et le 2ème (Y) pour haut/bas */
+          transform: translate(90px, 0px) !important; 
+          transition: transform 0.3s ease !important;
+        }
+        
+        .footer-itch-btn img {
+          /* Modifie la hauteur ici pour ajuster la taille de l'image (la largeur s'adaptera toute seule) */
+          height: 70px !important; 
+          width: auto !important;
+          display: block !important;
+          transition: transform 0.3s ease !important;
+        }
+
+        /* Effet de zoom au survol (conserve ton décalage de position + applique le scale) */
+        .footer-itch-btn:hover {
+          transform: translate(90px, 0px) scale(1.08) !important;
+        }
+
         /* --- 1. ZOOM INDÉPENDANT POUR LE MAIL --- */
         a.footer-link-email {
           display: inline-block !important;
@@ -110,13 +131,12 @@
             transform: translate(0px, 4px) !important; 
           }
         }
-
-        .footer img { transition: transform 0.3s ease !important; }
-        .footer a[title="Itch.io"] img:hover { transform: scale(1.2) !important; }
       </style>
       <div class="footer-custom-layout">
         <div class="footer-socials">
-          <a href="https://andumnios-interactif.itch.io/awen/" target="_blank" rel="noopener" title="Itch.io"><img src="https://andumniosinteractif.com/media/files/WishlistOnItch.webp" alt="Itch.io" class="footer-img" style="width: 50px; height: 50px;"></a>
+          <a href="https://andumnios-interactif.itch.io/awen/" target="_blank" rel="noopener" title="Itch.io" class="footer-itch-btn">
+            <img src="https://andumniosinteractif.com/media/files/AjouterAlaCollection.webp" alt="Itch.io">
+          </a>
         </div>
         <div class="footer-text">
           © Andumnios Interactif | <span id="footer-email-protect">...</span> | <a href="${mentionsUrl}" class="footer-link-mentions">Mentions Légales</a>
