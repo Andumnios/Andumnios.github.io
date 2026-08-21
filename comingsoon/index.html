@@ -83,7 +83,6 @@
         .footer-text, .footer-text *, .footer-nav-icon, #back-to-top-btn { font-family: 'Comic Neue', cursive, sans-serif !important; color: #fff2cc !important; }
         .footer-custom-layout { display: flex !important; justify-content: space-between !important; align-items: center !important; flex-wrap: wrap !important; gap: 20px !important; }
         .footer-socials { display: flex !important; align-items: center !important; margin-left: 20px !important; }
-        .footer-socials a:not(:last-child) { margin-right: 25px !important; }
         .footer-right-group { display: flex !important; align-items: center !important; margin-right: 15px !important; }
         .footer-right-group > *:not(:last-child) { margin-right: 20px !important; }
         .footer-nav-icon { display: inline-flex !important; align-items: center !important; justify-content: center !important; text-decoration: none !important; font-size: 1.4rem !important; line-height: 1 !important; transition: transform 0.3s ease !important; color: inherit !important; }
@@ -122,27 +121,21 @@
         @media (min-width: 769px) {
           .footer-home-link {
             position: relative !important;
-            /* Modifie le premier chiffre pour X (positif = droite, négatif = gauche) 
-               et le deuxième chiffre pour Y (positif = bas, négatif = haut) */
             transform: translate(0px, 4px) !important; 
           }
         }
 
         .footer img { transition: transform 0.3s ease !important; }
-        .footer a[title="Steam"] img:hover, .footer a[title="Itch.io"] img:hover, .footer a[title="GOG"] img:hover { transform: scale(1.2) !important; }
-        .footer a[title="Ko-fi"] img:hover { transform: scale(1.1) !important; }
+        .footer a[title="Itch.io"] img:hover { transform: scale(1.2) !important; }
       </style>
       <div class="footer-custom-layout">
         <div class="footer-socials">
-          <a href="https://andumniosinteractif.com/comingsoon/" target="_blank" rel="noopener" title="Steam"><img src="https://andumniosinteractif.com/media/files/Logo_Steam.webp" alt="Steam" class="footer-img"></a>
-          <a href="https://andumniosinteractif.com/comingsoon/" target="_blank" rel="noopener" title="Itch.io"><img src="https://andumniosinteractif.com/media/files/Logo_Itch.webp" alt="Itch.io" class="footer-img"></a>
-          <a href="https://andumniosinteractif.com/comingsoon/" target="_blank" rel="noopener" title="GOG"><img src="https://andumniosinteractif.com/media/files/Logo_GoG.webp" alt="GOG" class="footer-img"></a>
+          <a href="https://andumnios-interactif.itch.io/awen/" target="_blank" rel="noopener" title="Itch.io"><img src="https://andumniosinteractif.com/media/files/WishlistOnItch.webp" alt="Itch.io" class="footer-img" style="width: 50px; height: 50px;"></a>
         </div>
         <div class="footer-text">
           © Andumnios Interactif | <span id="footer-email-protect">...</span> | <a href="${mentionsUrl}" class="footer-link-mentions">Mentions Légales</a>
         </div>
         <div class="footer-right-group">
-          <a href="https://andumniosinteractif.com/comingsoon/" target="_blank" rel="noopener" title="Ko-fi"><img src="https://andumniosinteractif.com/media/files/Logo_Kofi.webp" alt="Ko-fi" class="footer-img"></a>
           <div class="footer-home-link"><a href="${homeUrl}" class="footer-nav-icon" title="Retour à l'accueil"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></a></div>
           <div class="footer-back-to-top"><a href="#" id="back-to-top-btn" class="footer-nav-icon" title="Retour en haut">▲</a></div>
         </div>
