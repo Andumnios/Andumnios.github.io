@@ -241,25 +241,24 @@
           text-decoration: underline; 
         }
 
-        /* --- RÉGLAGE DE LA TAILLE ET DE LA POSITION DU BOUTON ITCH --- */
+        /* --- TAILLE PERSONNALISÉE EN MODE MOBILE --- */
         .footer-itch-btn {
           display: inline-block !important;
-          /* Modifie le 1er chiffre (X) pour bouger à gauche/droite et le 2ème (Y) pour haut/bas */
-          transform: translate(90px, 0px) !important; 
+          transform: translate(0px, 0px) !important; 
           transition: transform 0.3s ease !important;
         }
         
-        .footer-itch-btn img {
-          /* Modifie la hauteur ici pour ajuster la taille de l'image (la largeur s'adaptera toute seule) */
-          height: 70px !important; 
+        /* C'est ici que tu règles la taille sur MOBILE */
+        .footer-itch-btn img.footer-itch-img-mobile {
+          height: 50px !important;  /* <--- Modifie cette hauteur si tu veux plus grand/plus petit sur mobile */
           width: auto !important;
+          max-width: none !important;
           display: block !important;
           transition: transform 0.3s ease !important;
         }
 
-        /* Effet de zoom au survol (conserve ton décalage de position + applique le scale) */
         .footer-itch-btn:hover {
-          transform: translate(90px, 0px) scale(1.08) !important;
+          transform: translate(0px, 0px) scale(1.08) !important;
         }
 
         /* --- 1. ZOOM INDÉPENDANT POUR LE MAIL --- */
@@ -280,8 +279,18 @@
           transform: scale(1.08) !important;
         }
 
-        /* --- 3. DÉCALAGE DU LOGO ACCUEIL UNIQUEMENT SUR PC (écrans > 768px) --- */
+        /* --- RÈGLES UNIQUEMENT SUR PC (écrans > 768px) --- */
         @media (min-width: 769px) {
+          .footer-itch-btn {
+            transform: translate(90px, 0px) !important;
+          }
+          .footer-itch-btn img.footer-itch-img-mobile {
+            height: 70px !important; /* <--- Hauteur fixe sur PC */
+            width: auto !important;  
+          }
+          .footer-itch-btn:hover {
+            transform: translate(90px, 0px) scale(1.08) !important;
+          }
           .footer-home-link {
             position: relative !important;
             transform: translate(0px, 4px) !important; 
@@ -291,7 +300,7 @@
       <div class="footer-custom-layout">
         <div class="footer-socials">
           <a href="https://andumnios-interactif.itch.io/awen/" target="_blank" rel="noopener" title="Itch.io" class="footer-itch-btn">
-            <img src="https://andumniosinteractif.com/media/files/AjouterAlaCollection.webp" alt="Itch.io">
+            <img src="https://andumniosinteractif.com/media/files/AjouterAlaCollection.webp" alt="Itch.io" class="footer-itch-img-mobile">
           </a>
         </div>
         <div class="footer-text">
