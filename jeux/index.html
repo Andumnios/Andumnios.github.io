@@ -139,6 +139,8 @@ function closeModal() {
 
   .footer-socials { justify-content: flex-start !important; }
   .footer-right-group { justify-content: flex-end !important; }
+
+  /* Empêche la règle automatique d'écraser la marge du dernier élément */
   .footer-right-group > *:not(:last-child) { margin-right: 20px !important; }
 
   .footer-text {
@@ -147,6 +149,13 @@ function closeModal() {
     line-height: 1.2 !important;
     font-weight: 500 !important;
     text-align: center !important;
+    margin-top: 0px !important; /* <--- Position verticale du texte sur PC (modifiable) */
+  }
+
+  /* Force l'e-mail et le lien des mentions légales à copier la taille du texte sur PC */
+  .footer-text a, 
+  .footer-text span {
+    font-size: inherit !important;
   }
 
   /* --- Liens et navigation --- */
@@ -161,75 +170,155 @@ function closeModal() {
     }
   }
 
-  /* --- Icônes de navigation (Accueil & Retour en haut) --- */
-  .footer-nav-icon {
+
+  /* ========================================================
+     RÉGLAGES DES BOUTONS IMAGES (PC par défaut)
+     ======================================================== */
+
+  .footer-custom-layout .footer-itch-btn {
+    display: inline-block !important;
+    margin-top: 0px !important;
+    margin-left: 30px !important;
+    transition: transform 0.3s ease !important;
+  }
+  .footer-custom-layout .footer-itch-btn img {
+    height: 35px !important;
+    width: auto !important;
+    max-height: 35px !important;
+    object-fit: contain !important;
+    display: block !important;
+  }
+
+  .footer-custom-layout .footer-youtube-btn {
+    display: inline-block !important;
+    margin-top: 0px !important;
+    margin-left: 15px !important;
+    transition: transform 0.3s ease !important;
+  }
+  .footer-custom-layout .footer-youtube-btn img {
+    height: 70px !important;
+    width: auto !important;
+    max-height: 70px !important;
+    object-fit: contain !important;
+    display: block !important;
+  }
+
+
+  /* ========================================================
+     RÉGLAGES DES BOUTONS ACCUEIL & HAUT DE PAGE (PC par défaut)
+     ======================================================== */
+
+  /* --- 1. Bouton ACCUEIL (PC) --- */
+  .footer-home-link {
+    display: inline-block !important;
+    margin-top: 0px !important;      /* Monte ou descend l'icône Accueil sur PC */
+    margin-right: 0px !important;    /* Espacement entre Accueil et Haut de page sur PC */
+    transition: transform 0.3s ease !important;
+  }
+  .footer-home-link .footer-nav-icon {
+    display: inline-flex !important;
+  }
+  .footer-home-link .footer-nav-icon svg {
+    width: 45px !important;          /* Taille (largeur) de l'icône Accueil sur PC */
+    height: 45px !important;         /* Taille (hauteur) de l'icône Accueil sur PC */
+    fill: #fff2cc !important;
+  }
+
+  /* --- 2. Bouton HAUT DE PAGE (PC) --- */
+  .footer-back-to-top {
+    display: inline-block !important;
+    margin-top: 0px !important;      /* Monte ou descend le bouton Haut de page sur PC */
+    margin-right: 30px !important;   /* <--- MARGE PAR RAPPORT AU BORD DROIT DE LA PAGE SUR PC */
+  }
+  #back-to-top-btn {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    text-decoration: none !important;
-    font-size: 1.4rem !important;
-    line-height: 1 !important;
+    font-size: 1rem !important;      /* Taille du texte/flèche sur PC */
+    padding: 0px 8px !important;    /* Espace intérieur du bouton sur PC */
+    border: 1px solid #fff2cc !important;
+    border-radius: 4px !important;
+    transition: transform 0.3s ease, background-color 0.2s ease, color 0.2s ease !important;
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
     color: #fff2cc !important;
-    transition: transform 0.3s ease !important;
   }
 
-  .footer-nav-icon svg {
-    width: 36px !important;
-    height: 36px !important;
-    fill: #fff2cc !important; 
-  }
 
-  @media (hover: hover) {
-    .footer-nav-icon:hover { transform: scale(1.3) !important; }
-  }
-
-  /* --- Boutons images (Itch.io & Second lien) --- */
-  .footer-itch-btn, .footer-other-btn {
-    display: inline-block !important;
-    transition: transform 0.3s ease !important;
-  }
-
-  .footer-itch-btn img, 
-  .footer-other-btn img,
-  .footer-itch-btn img.footer-itch-img-mobile, 
-  .footer-other-btn img.footer-other-img-mobile {
-    height: 40px !important;
-    width: auto !important;
-    max-height: 40px !important;
-    max-width: none !important;
-    object-fit: contain !important;
-    display: block !important;
-    transition: transform 0.3s ease !important;
-  }
-    
-  /* --- UNIQUEMENT EN MODE MOBILE (écrans de 768px ou moins) --- */
+  /* ========================================================
+     RÉGLAGES INDIVIDUELS EN MODE MOBILE (écrans <= 768px)
+     ======================================================== */
   @media (max-width: 768px) {
-    .footer-custom-layout .footer-itch-btn img, 
-    .footer-custom-layout .footer-other-btn img {
-      height: 30px !important; /* Change ici la taille mobile (ex: 28px, 32px...) */
+    
+    /* --- Texte du footer (Mobile) --- */
+    .footer-text {
+      font-size: 0.9rem !important;     /* Taille du texte sur mobile */
+      margin-top: 0px !important;       /* <--- Position verticale du texte sur mobile (modifiable) */
+      margin-bottom: 10px !important;        /* <--- Position verticale du texte sur mobile (modifiable) */
+    }
+    .footer-text a, 
+    .footer-text span {
+      font-size: inherit !important;    /* Force l'e-mail et mentions à copier la taille sur mobile */
+    }
+
+    /* Itch.io (Mobile) */
+    .footer-custom-layout .footer-itch-btn img {
+      height: 30px !important;
       max-height: 30px !important;
+    }
+    .footer-custom-layout .footer-itch-btn {
+      margin-top: 0px !important;
+      margin-left: 5px !important;
+    }
+
+    /* YouTube (Mobile) */
+    .footer-custom-layout .footer-youtube-btn img {
+      height: 50px !important;
+      max-height: 50px !important;
+    }
+    .footer-custom-layout .footer-youtube-btn {
+      margin-top: 0px !important;
+      margin-left: 10px !important;
+    }
+
+    /* --- Accueil (Mobile) --- */
+    .footer-home-link .footer-nav-icon svg {
+      width: 30px !important;         /* Taille mobile largeur Accueil */
+      height: 30px !important;        /* Taille mobile hauteur Accueil */
+    }
+    .footer-home-link {
+      margin-top: 0px !important;    /* Position verticale mobile Accueil */
+      margin-right: 0px !important;  /* Espace mobile entre Accueil et Haut de page */
+    }
+
+    /* --- Haut de page (Mobile) --- */
+    #back-to-top-btn {
+      font-size: 0.85rem !important; /* Taille mobile du texte/flèche */
+      padding: 4px 8px !important;   /* Padding mobile Haut de page */
+    }
+    .footer-back-to-top {
+      margin-top: 0px !important;    /* Position verticale mobile Haut de page */
+      margin-right: 0px !important;  /* <--- MARGE PAR RAPPORT AU BORD DROIT DE LA PAGE SUR MOBILE */
     }
   }
 
-  /* --- Réglages de position individuels via les marges --- */
-  .footer-itch-btn {
-    margin-top: 0px !important;  /* Modifie ici pour monter/descendre Itch (ex: -3px) */
-    margin-left: 10px !important; /* Modifie ici pour décaler Itch horizontalement */
-  }
 
-  .footer-other-btn {
-    margin-top: 0px !important;  /* Modifie ici pour monter/descendre le second bouton */
-    margin-left: 15px !important; /* Modifie ici pour l'éloigner ou le rapprocher d'Itch */
-  }
-
-  /* --- Effets de survol --- */
+  /* --- Effets de survol séparés et garantis --- */
   @media (hover: hover) {
-    .footer-itch-btn:hover {
+    .footer-itch-btn:hover, .footer-youtube-btn:hover {
       transform: scale(1.2) !important; 
     }
     
-    .footer-other-btn:hover {
-      transform: scale(1.2) !important;
+    /* Survol Accueil */
+    .footer-home-link:hover { 
+      transform: scale(1.25) !important; 
+    }
+    
+    /* Survol Haut de page */
+    #back-to-top-btn:hover {
+      transform: scale(1.25) !important;
+      background-color: #fff2cc !important;
+      color: #b7b988 !important;
     }
   }
 
@@ -244,26 +333,6 @@ function closeModal() {
     .footer-link-mentions:hover { transform: scale(1.08) !important; }
   }
 
-  /* --- Bouton Retour en haut --- */
-  #back-to-top-btn {
-    display: inline-block !important;
-    font-size: 1rem !important;
-    padding: 6px 12px !important;
-    border: 1px solid #fff2cc !important;
-    border-radius: 4px !important;
-    transition: all 0.2s ease !important;
-    -webkit-tap-highlight-color: transparent !important;
-    outline: none !important;
-    color: #fff2cc !important;
-  }
-
-  @media (hover: hover) {
-    #back-to-top-btn:hover {
-      background-color: #fff2cc !important;
-      color: #b7b988 !important;
-    }
-  }
-
   /* Empêche le blocage visuel de l'état actif/focus sur les écrans tactiles */
   #back-to-top-btn:focus, 
   #back-to-top-btn:active {
@@ -274,22 +343,22 @@ function closeModal() {
   /* --- Espaceur dynamique pré-rendu (Anti-CLS) --- */
   #dynamic-footer-spacer {
     width: 100%;
-    height: 80px; /* Hauteur de sécurité initiale estimée */
+    height: 80px; 
     pointer-events: none;
   }
 
   /* --- RÈGLES POUR GRANDS ÉCRANS (> 1600px) --- */
   @media (min-width: 1601px) {
-    .footer-itch-btn, .footer-other-btn {
-      /* Tu peux ajuster la position globale pour grands écrans ici si besoin */
-    }
-    .footer-itch-btn img.footer-itch-img-mobile,
-    .footer-other-btn img.footer-other-img-mobile {
+    .footer-itch-btn img, .footer-youtube-btn img {
       height: 70px !important;
+      max-height: 70px !important;
     }
     .footer-home-link {
       position: relative !important;
       transform: translate(0px, 4px) !important;
+    }
+    .footer-home-link:hover {
+      transform: translate(0px, 4px) scale(1.25) !important;
     }
   }</style><div id="dynamic-footer-spacer" aria-hidden="true"></div><script>document.addEventListener("DOMContentLoaded", function() {
   const footerElement = document.querySelector('footer, .footer, #footer, .site-footer');
@@ -314,15 +383,15 @@ function closeModal() {
     homeUrl = "https://andumniosinteractif.com/";
   }
 
-  // --- 2. INJECTION DU HTML ---
+  // --- 2. INJECTION DU HTML (Optimisé Core Web Vitals) ---
   footerElement.innerHTML = `
     <div class="footer-custom-layout">
       <div class="footer-socials">
         <a href="https://andumnios-interactif.itch.io/pwyll/" target="_blank" rel="noopener" title="Itch.io" class="footer-itch-btn">
-          <img src="https://andumniosinteractif.com/media/files/Logo_Itch.webp" alt="Itch.io" class="footer-itch-img-mobile">
+          <img src="https://andumniosinteractif.com/media/files/Logo_Itch.webp" alt="Itch.io" width="35" height="35" decoding="async">
         </a>
-        <a href="https://www.youtube.com/@Andumnios" target="_blank" rel="noopener" title="Autre lien" class="footer-other-btn">
-          <img src="https://andumniosinteractif.com/media/files/Logo_Steam.webp" alt="Autre lien" class="footer-other-img-mobile">
+        <a href="https://www.youtube.com/@Andumnios" target="_blank" rel="noopener" title="YouTube" class="footer-youtube-btn">
+          <img src="https://andumniosinteractif.com/media/files/Logo_YouTube.webp" alt="YouTube" width="70" height="70" decoding="async">
         </a>
       </div>
       <div class="footer-text">
@@ -335,7 +404,7 @@ function closeModal() {
           </a>
         </div>
         <div class="footer-back-to-top">
-          <a href="#" id="back-to-top-btn" class="footer-nav-icon" title="Retour en haut" aria-label="Retour en haut">▲</a>
+          <a href="#" id="back-to-top-btn" title="Retour en haut" aria-label="Retour en haut">▲</a>
         </div>
       </div>
     </div>
@@ -350,12 +419,11 @@ function closeModal() {
       emailSpan.innerHTML = `<a href="mailto:${emailDecoded}" class="footer-link-email" style="text-decoration: underline;">${emailDecoded}</a>`;
     }
   } catch (e) {
-    // Gestion silencieuse d'erreur d'encodage
+    // Gestion silencieuse
   }
 
-  // --- 4. ESPACEUR DYNAMIQUE (OPTIMISÉ RESIZE OBSERVER & ANTI-CLS) ---
+  // --- 4. ESPACEUR DYNAMIQUE (Anti-CLS Performant) ---
   const spacer = document.getElementById('dynamic-footer-spacer');
-  
   const updateSpacerHeight = () => {
     if (spacer && footerElement) {
       spacer.style.height = (footerElement.offsetHeight + 30) + "px";
@@ -365,15 +433,22 @@ function closeModal() {
   updateSpacerHeight();
 
   if (window.ResizeObserver) {
+    let ticking = false;
     const observer = new ResizeObserver(() => {
-      requestAnimationFrame(updateSpacerHeight);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateSpacerHeight();
+          ticking = false;
+        });
+        ticking = true;
+      }
     });
     observer.observe(footerElement);
   } else {
     window.addEventListener('resize', updateSpacerHeight, { passive: true });
   }
 
-  // --- 5. GESTION DU SCROLL FLUIDE OPTIMISÉE (DÉLÉGATION) ---
+  // --- 5. GESTION DU SCROLL FLUIDE (Délégation d'événements optimisée) ---
   footerElement.addEventListener('click', function(e) {
     const targetBtn = e.target.closest('#back-to-top-btn');
     if (targetBtn) {
