@@ -85,6 +85,7 @@
     }
   }
 
+  /* --- Icônes de navigation (Accueil & Retour en haut) --- */
   .footer-nav-icon {
     display: inline-flex !important;
     align-items: center !important;
@@ -92,38 +93,71 @@
     text-decoration: none !important;
     font-size: 1.4rem !important;
     line-height: 1 !important;
+    color: #fff2cc !important;
     transition: transform 0.3s ease !important;
   }
 
   .footer-nav-icon svg {
     width: 36px !important;
     height: 36px !important;
-    fill: currentColor !important;
+    fill: #fff2cc !important; 
   }
 
   @media (hover: hover) {
     .footer-nav-icon:hover { transform: scale(1.3) !important; }
   }
 
-  /* --- Bouton image Itch.io --- */
-  .footer-itch-btn {
+  /* --- Boutons images (Itch.io & Second lien) --- */
+  .footer-itch-btn, .footer-other-btn {
     display: inline-block !important;
     transition: transform 0.3s ease !important;
   }
 
-  .footer-itch-btn img.footer-itch-img-mobile {
-    height: 60px !important;
+  .footer-itch-btn img, 
+  .footer-other-btn img,
+  .footer-itch-btn img.footer-itch-img-mobile, 
+  .footer-other-btn img.footer-other-img-mobile {
+    height: 40px !important;
     width: auto !important;
+    max-height: 40px !important;
     max-width: none !important;
+    object-fit: contain !important;
     display: block !important;
     transition: transform 0.3s ease !important;
   }
-
-  @media (hover: hover) {
-    .footer-itch-btn:hover { transform: scale(1.08) !important; }
+    
+  /* --- UNIQUEMENT EN MODE MOBILE (écrans de 768px ou moins) --- */
+  @media (max-width: 768px) {
+    .footer-custom-layout .footer-itch-btn img, 
+    .footer-custom-layout .footer-other-btn img {
+      height: 30px !important; /* Change ici la taille mobile (ex: 28px, 32px...) */
+      max-height: 30px !important;
+    }
   }
 
-  /* --- Effets de survol spécifiques --- */
+  /* --- Réglages de position individuels via les marges --- */
+  .footer-itch-btn {
+    margin-top: 0px !important;  /* Modifie ici pour monter/descendre Itch (ex: -3px) */
+    margin-left: 10px !important; /* Modifie ici pour décaler Itch horizontalement */
+  }
+
+  .footer-other-btn {
+    margin-top: 0px !important;  /* Modifie ici pour monter/descendre le second bouton */
+    margin-left: 15px !important; /* Modifie ici pour l'éloigner ou le rapprocher d'Itch */
+  }
+
+  /* --- Effets de survol --- */
+  @media (hover: hover) {
+    .footer-itch-btn:hover {
+      transform: scale(1.2) !important; 
+    }
+    
+    .footer-other-btn:hover {
+      transform: scale(1.2) !important;
+    }
+  }
+
+  /* --- Effets de survol spécifiques (Texte & Email) --- */
   .footer-link-email, .footer-link-mentions {
     display: inline-block !important;
     transition: transform 0.3s ease !important;
@@ -144,6 +178,7 @@
     transition: all 0.2s ease !important;
     -webkit-tap-highlight-color: transparent !important;
     outline: none !important;
+    color: #fff2cc !important;
   }
 
   @media (hover: hover) {
@@ -169,16 +204,12 @@
 
   /* --- RÈGLES POUR GRANDS ÉCRANS (> 1600px) --- */
   @media (min-width: 1601px) {
-    .footer-itch-btn {
-      transform: translate(90px, 0px) !important;
+    .footer-itch-btn, .footer-other-btn {
+      /* Tu peux ajuster la position globale pour grands écrans ici si besoin */
     }
-    .footer-itch-btn img.footer-itch-img-mobile {
+    .footer-itch-btn img.footer-itch-img-mobile,
+    .footer-other-btn img.footer-other-img-mobile {
       height: 70px !important;
-    }
-    @media (hover: hover) {
-      .footer-itch-btn:hover {
-        transform: translate(90px, 0px) scale(1.08) !important;
-      }
     }
     .footer-home-link {
       position: relative !important;
@@ -212,7 +243,10 @@
     <div class="footer-custom-layout">
       <div class="footer-socials">
         <a href="https://andumnios-interactif.itch.io/pwyll/" target="_blank" rel="noopener" title="Itch.io" class="footer-itch-btn">
-          <img src="https://andumniosinteractif.com/media/files/AjouterAlaCollection.webp" alt="Itch.io" class="footer-itch-img-mobile">
+          <img src="https://andumniosinteractif.com/media/files/Logo_Itch.webp" alt="Itch.io" class="footer-itch-img-mobile">
+        </a>
+        <a href="https://www.youtube.com/@Andumnios" target="_blank" rel="noopener" title="Autre lien" class="footer-other-btn">
+          <img src="https://andumniosinteractif.com/media/files/Logo_Steam.webp" alt="Autre lien" class="footer-other-img-mobile">
         </a>
       </div>
       <div class="footer-text">
