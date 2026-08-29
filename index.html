@@ -417,16 +417,17 @@ document.addEventListener("click", function(e) {
   `;
 
   // --- 3. SÉCURISATION DE LA LECTURE E-MAIL (BASE64) ---
-  const emailEncoded = "Y29udGFjdEBhbmR1bW5pb3NpbnRlcmFjdGlmLmNvbQ==";
-  try {
-    const emailDecoded = atob(emailEncoded);
-    const emailSpan = document.getElementById('footer-email-protect');
-    if (emailSpan) {
-      emailSpan.innerHTML = `<a href="mailto:${emailDecoded}" class="footer-link-email" style="text-decoration: underline;">${emailDecoded}</a>`;
-    }
-  } catch (e) {
-    // Gestion silencieuse
+const emailEncoded = "Y29udGFjdEBhbmR1bW5pb3NpbnRlcmFjdGlmLmNvbQ==";
+try {
+  const bytes = Uint8Array.from(atob(emailEncoded), c => c.charCodeAt(0));
+  const emailDecoded = new TextDecoder().decode(bytes);
+  const emailSpan = document.getElementById('footer-email-protect');
+  if (emailSpan) {
+    emailSpan.innerHTML = `<a href="mailto:${emailDecoded}" class="footer-link-email" style="text-decoration: underline;">${emailDecoded}</a>`;
   }
+} catch (e) {
+  // Gestion silencieuse
+}
 
   // --- 4. ESPACEUR DYNAMIQUE (Anti-CLS Performant) ---
   const spacer = document.getElementById('dynamic-footer-spacer');
