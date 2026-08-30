@@ -17,11 +17,15 @@ document.addEventListener("click", function(e) {
   const anchor = e.target.closest('a[href^="#"]');
   if (anchor) {
     const hash = anchor.getAttribute('href');
-    if (hash && hash !== '#') {
-      const targetElem = document.querySelector(hash);
-      if (targetElem) {
-        e.preventDefault();
-        targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (hash && hash !== '#' && hash.length > 1) {
+      try {
+        const targetElem = document.querySelector(hash);
+        if (targetElem) {
+          e.preventDefault();
+          targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } catch (err) {
+        // Ignorer silencieusement si le hash n'est pas un sélecteur valide
       }
     }
   }
